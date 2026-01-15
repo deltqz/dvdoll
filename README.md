@@ -1,5 +1,5 @@
 # DVDoll - FFmpeg DVD remuxer
-DVDoll is a guided CLI tool that walks you through the process of remuxing your DVDs to MKV files. No commands, no GUIs; just choose a file and the chapters to process. It also detects whether your audio is PCM or AC3/DTS/MP2. In the former case, it converts it to FLAC, otherwise it simply remuxes it.
+DVDoll is a guided CLI tool that walks you through the process of remuxing your DVDs to MKV files. No commands, no GUIs; just choose a DVD folder/ISO and the chapters to process. It also detects whether your audio is PCM or AC3/DTS/MP2. In the former case, it converts it to FLAC, otherwise it simply remuxes it.
 
 <img width="961" height="520" alt="image" src="https://github.com/user-attachments/assets/ced8da45-9abe-4620-89fa-cde7f8059b8b" />
 
