@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       tag_name:
-        description: 'Tag name'
+        description: 'Tag name:'
         required: true
         default: 'R1'
       release_notes:
-        description: 'Release notes'
+        description: 'Release notes:'
         required: false
         type: string
 
