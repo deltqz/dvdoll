@@ -242,19 +242,20 @@ func getChapterCount(inputPath string, title int) (int, error) {
 		"-preindex", "True",
 		"-title", fmt.Sprintf("%d", title),
 		"-show_chapters",
-		"-show_entries", "chapter=index",
-		"-of", "csv=p=0",
+		"-of", "flat",
 		inputPath,
 	}
 	out, err := runCommandCapture("ffprobe", args...)
 	if err != nil {
 		return 0, err
 	}
-	lines := strings.Split(strings.TrimSpace(out), "\n")
-	if len(lines) == 1 && strings.TrimSpace(lines[0]) == "" {
-		return 0, nil
+	count := 0
+	for _, line := range strings.Split(out, "\n") {
+		if strings.HasPrefix(line, "chapters.chapter.") && strings.Contains(line, ".id=") {
+			count++
+		}
 	}
-	return len(lines), nil
+	return count, nil
 }
 
 func detectAudioCodec(inputPath string, title int) (string, error) {
