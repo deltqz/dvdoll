@@ -32,6 +32,7 @@ jobs:
       - name: Build for Windows (amd64)
         run: |
           CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dvdoll.exe .
+          rm -rf dvdoll
           mkdir dvdoll
           cp dvdoll.exe dvdoll/
           cp LICENSE dvdoll/
@@ -41,6 +42,7 @@ jobs:
       - name: Build for Linux (amd64)
         run: |
           CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o dvdoll .
+          rm -rf dvdoll
           mkdir dvdoll
           cp dvdoll dvdoll/
           cp LICENSE dvdoll/
@@ -50,6 +52,7 @@ jobs:
       - name: Build for macOS (arm64)
         run: |
           CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build -trimpath -ldflags="-s -w" -o dvdoll .
+          rm -rf dvdoll
           mkdir dvdoll
           cp dvdoll dvdoll/
           cp LICENSE dvdoll/
